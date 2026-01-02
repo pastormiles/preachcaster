@@ -6,9 +6,11 @@ class Settings(BaseSettings):
     # App
     app_name: str = "PreachCaster"
     debug: bool = False
+    app_url: str = "http://localhost:8000"  # Backend URL
+    frontend_url: str = "http://localhost:3000"  # Frontend URL
 
     # Database
-    database_url: str = "postgresql://postgres:postgres@localhost:5432/preachcaster"
+    database_url: str = "postgresql://miles@localhost:5432/preachcaster"
 
     # Auth
     jwt_secret: str = "change-me-in-production"

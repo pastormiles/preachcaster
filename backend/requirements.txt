@@ -22,7 +22,14 @@ google-api-python-client==2.116.0
 openai==1.10.0
 
 # Audio processing
-yt-dlp==2024.1.1
+yt-dlp>=2024.3.10
+
+# Transcripts
+youtube-transcript-api==0.6.2
+
+# PDF generation
+fpdf2==2.7.8
+Pillow==10.2.0
 
 # Google Cloud Storage
 google-cloud-storage==2.14.0
@@ -33,6 +40,8 @@ rq==1.16.0
 
 # Utilities
 python-dotenv==1.0.0
+email-validator>=2.0.0
 pydantic==2.5.3
 pydantic-settings==2.1.0
 httpx==0.26.0
+requests==2.31.0

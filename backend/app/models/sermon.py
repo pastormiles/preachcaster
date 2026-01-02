@@ -35,18 +35,28 @@ class Sermon(Base):
     duration_seconds = Column(Integer, nullable=True)
 
     # Transcript (stored as JSON with timestamps)
-    # Format: [{"start": 0.0, "end": 5.2, "text": "Welcome everyone..."}, ...]
+    # Format: [{"start": 0.0, "duration": 5.2, "text": "Welcome everyone..."}, ...]
     transcript_json = Column(JSON, nullable=True)
+    # AI-formatted transcript with proper punctuation and paragraphs
+    formatted_transcript = Column(Text, nullable=True)
 
-    # AI-generated content (Phase 2)
-    summary = Column(Text, nullable=True)
-    discussion_guide = Column(Text, nullable=True)
+    # AI-generated content
+    summary = Column(Text, nullable=True)  # 2-3 sentence podcast description
+    big_idea = Column(Text, nullable=True)  # One memorable sentence
+    primary_scripture = Column(JSON, nullable=True)  # {"reference": "...", "text": "..."}
+    topics = Column(JSON, nullable=True)  # ["faith", "prayer", "grace"]
+    discussion_guide_json = Column(JSON, nullable=True)  # Full discussion guide content
+    ai_content_json = Column(JSON, nullable=True)  # Complete AI response for reference
+
+    # Generated files
+    discussion_guide_url = Column(String(500), nullable=True)  # PDF URL
 
     # Status
     status = Column(String(20), default=SermonStatus.PENDING.value)
     error_message = Column(Text, nullable=True)
 
     # Timestamps
+    processing_started_at = Column(DateTime, nullable=True)
     published_at = Column(DateTime, nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)

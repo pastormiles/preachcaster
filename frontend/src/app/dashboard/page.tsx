@@ -58,7 +58,7 @@ export default function DashboardPage() {
           {/* Setup steps */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <div className="flex-shrink-0 w-8 h-8 bg-green-100 text-green-600 rounded-full flex items-center justify-center">
+              <div className="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">
                 1
               </div>
               <div>
@@ -105,7 +105,7 @@ export default function DashboardPage() {
             <h2 className="text-xl font-semibold text-gray-900">Sermons</h2>
             <button
               disabled
-              className="px-4 py-2 bg-indigo-600 text-white rounded-md opacity-50 cursor-not-allowed"
+              className="px-4 py-2 bg-orange-600 text-white rounded-md opacity-50 cursor-not-allowed"
             >
               Connect YouTube First
             </button>

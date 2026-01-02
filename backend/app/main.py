@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import get_settings
-from app.api import auth
+from app.api import auth, youtube, podcast, sermons, feed
 
 settings = get_settings()
 
@@ -37,3 +37,7 @@ async def health_check():
 
 # Include routers
 app.include_router(auth.router, prefix="/api")
+app.include_router(youtube.router, prefix="/api")
+app.include_router(podcast.router, prefix="/api")
+app.include_router(sermons.router, prefix="/api")
+app.include_router(feed.router)  # Public feed endpoints (no /api prefix)
