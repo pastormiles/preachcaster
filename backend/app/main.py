@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import get_settings
+from app.api import auth
 
 settings = get_settings()
 
@@ -32,3 +33,7 @@ async def root():
 @app.get("/health")
 async def health_check():
     return {"status": "healthy", "app": settings.app_name}
+
+
+# Include routers
+app.include_router(auth.router, prefix="/api")
